@@ -26,13 +26,13 @@ function Quiz(questions) {
     this.questionIndex = 0;
 }
 
-Quiz.prototype.getQuestionIndex = function() {
+Quiz.prototype.getQuestion= function() {
     return this.questions[this.questionIndex];
 }
 
 Quiz.prototype.guess = function(choice) {
     
-    if(this.getQuestionIndex().isCorrectAnswer(choice)) {
+    if(this.getQuestion().isCorrectAnswer(choice)) {
         this.score++;
     }
     
@@ -58,11 +58,11 @@ function populate() {
     else {
        
         var element = document.getElementById("question");
-        console.log(quiz.getQuestionIndex().text);
-        element.innerHTML = quiz.getQuestionIndex().text;
+        console.log(quiz.getQuestion().text);
+        element.innerHTML = quiz.getQuestion().text;
 
        
-        var choices = quiz.getQuestionIndex().choices;
+        var choices = quiz.getQuestion().choices;
         for(var i = 0; i < choices.length; i++) {
             var element = document.getElementById("choice" + i);
             element.innerHTML = choices[i];
