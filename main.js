@@ -10,15 +10,11 @@ Question.prototype={
     isCorrectAnswer(choice){
         return this.answer===choice;
     }
-
 }
-
 
 // Question.prototype.isCorrectAnswer = function(choice) {
 //     return this.answer === choice;
 // }
-
-
 //###QUIZ###
 function Quiz(questions) {
     this.score = 0;
@@ -37,20 +33,14 @@ Quiz.prototype.guess = function(choice) {
     }
     
     this.questionIndex++;
-    console.log(this.questions.length,this.questionIndex)
-
-    
+    console.log(this.questions.length,this.questionIndex)   
 }
 
 Quiz.prototype.isEnded = function() {
-   
-    return this.questionIndex === this.questions.length;
-    
+    return this.questionIndex === this.questions.length; 
 }
 
 //###App
-
-
 function populate() {
     if(quiz.isEnded()) {
         showScores();
@@ -60,16 +50,14 @@ function populate() {
         var element = document.getElementById("question");
         console.log(quiz.getQuestion().text);
         element.innerHTML = quiz.getQuestion().text;
-
-       
+    
         var choices = quiz.getQuestion().choices;
         for(var i = 0; i < choices.length; i++) {
             var element = document.getElementById("choice" + i);
             element.innerHTML = choices[i];
             guess("btn" + i, choices[i]);
         }
-
-        showProgress();
+       showProgress();
     }
 };
 
@@ -80,7 +68,6 @@ function guess(id, guess) {
         populate();
     }
 };
-
 
 function showProgress() {
     var currentQuestionNumber = quiz.questionIndex + 1;
